@@ -33,12 +33,14 @@
       rel="stylesheet"
     />
     <script>
-      // Apply stored theme before paint to avoid a flash. Default = light (paper).
+      // Apply stored theme before paint to avoid a flash. Default = dark unless the visitor chose light.
       (function () {
         try {
-          if (localStorage.getItem('theme') === 'dark')
+          if (localStorage.getItem('theme') !== 'light')
             document.documentElement.setAttribute('data-theme', 'dark');
-        } catch (e) {}
+        } catch (e) {
+          document.documentElement.setAttribute('data-theme', 'dark');
+        }
       })();
     </script>
   </head>

@@ -4,11 +4,11 @@ type Theme = 'light' | 'dark'
 
 function getStored(): Theme {
   try {
-    if (localStorage.getItem('theme') === 'dark') return 'dark'
+    if (localStorage.getItem('theme') === 'light') return 'light'
   } catch {
     /* ignore */
   }
-  return 'light'
+  return 'dark'
 }
 
 function apply(theme: Theme) {
@@ -23,7 +23,7 @@ function apply(theme: Theme) {
 }
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>('light')
+  const [theme, setTheme] = useState<Theme>('dark')
 
   useEffect(() => {
     setTheme(getStored())
